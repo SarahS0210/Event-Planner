@@ -1,0 +1,68 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+//variables for days/weeks
+  int days;
+  int days_num;
+  int weeks;
+//variables for theme and people invited
+  string event_theme;
+  int invited;
+//variables for pizza
+  double pizza_cost = 15.99;
+  double total_pizza_cost = 0;
+  int pizza = 0;
+  int pizza_slices = 1;
+  int slices_per_person = 0;
+  int slices_left_over = 0;
+//variables for soda
+  int soda_packs = 0;
+  double soda_cost = 7.99;
+  double total_soda_cost = 0;
+  int sodas = 1;
+  int sodas_per_person = 0;
+  int sodas_left_over = 0;
+
+int main (){
+  //input for days and weeks calculator
+    cout << "Welcome to the Event Planner. To start, Enter the  Amount of Days Before the Event" << endl;
+      cin >> days;
+      weeks = days / 7;
+      days_num = days % 7;
+  //input for event theme/purpose
+    cout << "What is The Event For?" << endl;
+      cin.ignore();
+    getline (cin, event_theme);
+  //input for invites
+    cout << "How Many People Are Invited?" << endl;
+      cin >> invited;
+  //input for amount of pizzas and slices and cost calculator
+    cout << "How Many Pizzas Would You like? Each Pizza Costs $15.99 And Has 8 Slices" << endl;
+      cin >> pizza;
+    total_pizza_cost = (pizza * pizza_cost);
+    pizza_slices = (pizza * 8);
+  //input for amount of soda packs and soda cans and cost calculator
+    cout << "How Many Packs of Soda Would You Like? Each Pack of Soda Costs $7.99 and Has 6 Soda Cans." << endl;
+      cin >> soda_packs;
+    total_soda_cost = (soda_packs * soda_cost);
+    sodas = (soda_packs * 6);
+//final calculations
+  //calculations for now many slices per person
+   slices_per_person = pizza_slices / invited;
+  //calculations for how many slices are left over
+   slices_left_over = pizza_slices % invited;
+  //calculations for how many sodas per person
+    sodas_per_person = sodas / invited;
+  //calculations for how many sodas are left over
+    sodas_left_over = sodas % invited;
+  
+//output for all data
+  cout << "There are " << weeks << " weeks and " << days_num << " days left until the event" << endl;
+  cout << "We will deliver " << pizza << " pizzas and " << soda_packs << " cases of soda" << endl;
+  cout << "Please let your guests know that each of them can get\n\t" << slices_per_person << " slice(s) of pizza and\n\t" << sodas_per_person << " can(s) of soda" << endl;
+  cout << "After that, you will have " << slices_left_over << " slice(s) of pizza and " << sodas_left_over << " can(s) of soda left over" << endl;
+  cout << "The total cost for the food will be " << (total_soda_cost + total_pizza_cost) << "." <<endl;
+  cout << "Since this is your fist order with us, \n We will be vaiving the delivery fee" << endl;
+  return 0;
+}
